@@ -11,6 +11,7 @@
         --accent: #0b74ff;
         --muted: #6b7280;
       }
+
       body {
         font-family: system-ui, -apple-system, Segoe UI, Roboto,
           "Helvetica Neue", Arial;
@@ -18,26 +19,31 @@
         background: var(--bg);
         color: #111;
       }
+
       header {
         background: linear-gradient(90deg, #0b74ff, #0066cc);
         color: #fff;
         padding: 20px 16px;
       }
+
       .container {
         max-width: 1000px;
         margin: 20px auto;
         padding: 0 16px;
       }
+
       h1 {
         margin: 0;
         font-size: 20px;
       }
+
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 18px;
         margin-top: 18px;
       }
+
       .card {
         background: var(--card);
         border-radius: 12px;
@@ -48,32 +54,51 @@
         gap: 10px;
         transition: transform 0.2s ease;
       }
+
       .card:hover {
         transform: scale(1.02);
       }
+
+      .thumb {
+        width: 100%;
+        height: 180px;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eaeaea;
+      }
+
       .thumb img {
         width: 100%;
-        height: 150px;
-        object-fit: cover;
+        height: 100%;
+        object-fit: contain; /* show full image, no cropping */
         border-radius: 8px;
+        background-color: #fff;
       }
+
       .title {
         font-weight: 600;
       }
+
       .price {
         color: var(--accent);
         font-weight: 700;
       }
+
       .row {
         display: flex;
         gap: 8px;
         align-items: center;
       }
+
       input[type="number"] {
         padding: 6px;
         border-radius: 8px;
         border: 1px solid #e6e9ef;
       }
+
       button.buy {
         margin-top: auto;
         background: var(--accent);
@@ -84,14 +109,17 @@
         cursor: pointer;
         font-weight: 600;
       }
+
       button.buy:hover {
         background: #0059cc;
       }
+
       .note {
         font-size: 13px;
         color: var(--muted);
         margin-top: 12px;
       }
+
       footer {
         max-width: 1000px;
         margin: 18px auto;
@@ -99,13 +127,15 @@
         color: var(--muted);
         font-size: 13px;
       }
+
       @media (max-width: 420px) {
-        .thumb img {
-          height: 120px;
+        .thumb {
+          height: 140px;
         }
       }
     </style>
   </head>
+
   <body>
     <header>
       <div class="container">
@@ -125,7 +155,10 @@
       <div class="container">
         <div>
           Seller contact:
-          <a href="https://www.facebook.com/profile.php?id=61564956483389" target="_blank">
+          <a
+            href="https://www.facebook.com/profile.php?id=61564956483389"
+            target="_blank"
+          >
             <code>facebook.com/profile.php?id=61564956483389</code>
           </a>
         </div>
@@ -141,24 +174,21 @@
       const products = [
         {
           id: 1,
-          name: "Bluetooth Headset",
-          price: 750,
-          image:
-            "https://images.unsplash.com/photo-1610484826967-09c5720778a0?auto=format&fit=crop&w=600&q=60",
+          name: "Office 2021 Professional Plus LifeTime License",
+          price: 200,
+          image: "./2021.jpg", // your local image (must be in the same folder)
         },
         {
           id: 2,
-          name: "Portable Powerbank 10k",
-          price: 850,
-          image:
-            "https://images.unsplash.com/photo-1606813902947-1c90e59e5e62?auto=format&fit=crop&w=600&q=60",
+          name: "Office 2024 Professional Plus LifeTime License",
+          price: 300,
+          image: "2024.jpg",
         },
         {
           id: 3,
-          name: "USB-C Cable (1m)",
-          price: 120,
-          image:
-            "https://images.unsplash.com/photo-1612462689059-6a9e7e3e42df?auto=format&fit=crop&w=600&q=60",
+          name: "coming soon...",
+          price: 0,
+          image: "",
         },
       ];
 
@@ -172,8 +202,12 @@
           <div class="title">${p.name}</div>
           <div class="row"><div class="price">₱${p.price.toLocaleString()}</div></div>
           <div class="row">
-            <label for="qty-${p.id}" style="font-size:13px;color:var(--muted)">Qty</label>
-            <input id="qty-${p.id}" type="number" min="1" value="1" style="width:70px" />
+            <label for="qty-${
+              p.id
+            }" style="font-size:13px;color:var(--muted)">Qty</label>
+            <input id="qty-${
+              p.id
+            }" type="number" min="1" value="1" style="width:70px" />
           </div>
           <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
         `;
