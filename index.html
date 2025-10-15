@@ -67,13 +67,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #eaeaea;
+        background: #f0f0f0;
       }
 
       .thumb img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* show full image, no cropping */
+        object-fit: contain; /* show full image, no crop */
         border-radius: 8px;
         background-color: #fff;
       }
@@ -170,25 +170,25 @@
       const FB_PAGE_ID = "61564956483389";
       // ---------------------------------------
 
-      // sample product data with images
+      // product data
       const products = [
         {
           id: 1,
           name: "Office 2021 Professional Plus LifeTime License",
           price: 200,
-          image: "./2021.jpg", // your local image (must be in the same folder)
+          image: "./2021.jpg",
         },
         {
           id: 2,
           name: "Office 2024 Professional Plus LifeTime License",
           price: 300,
-          image: "2024.jpg",
+          image: "./2024.jpg",
         },
         {
           id: 3,
-          name: "coming soon...",
+          name: "Coming Soon...",
           price: 0,
-          image: "",
+          image: "./comingsoon.jpg",
         },
       ];
 
@@ -214,10 +214,15 @@
         return card;
       }
 
-      // render products
+      // render product cards
       products.forEach((p) => grid.appendChild(buildCard(p)));
 
-      // handle buy clicks
+      // detect if user on mobile
+      function isMobile() {
+        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      }
+
+      // handle buy click
       grid.addEventListener("click", (ev) => {
         const btn = ev.target.closest("button.buy");
         if (!btn) return;
@@ -226,10 +231,17 @@
         const qtyEl = document.getElementById(`qty-${id}`);
         const qty = Math.max(1, parseInt(qtyEl.value || "1"));
 
-        // Messenger link
-        const ref = encodeURIComponent(`order|${product.id}|qty:${qty}`);
-        const url = `https://m.me/${encodeURIComponent(FB_PAGE_ID)}?ref=${ref}`;
-        window.open(url, "_blank");
+        // message buyer will see
+        const message = encodeURIComponent(
+          `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`
+        );
+
+        // choose correct Messenger link
+        const baseUrl = isMobile()
+          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
+          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
+
+        window.open(baseUrl, "_blank");
       });
     </script>
   </body>
