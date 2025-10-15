@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>F&C Tech</title>
+    <style>
+      :root {
+        --card: #fff;
+        --bg: #f2f4f8;
+        --accent: #0b74ff;
+        --muted: #6b7280;
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial;
+        margin: 0;
+        background: var(--bg);
+        color: #111;
+      }
+      header {
+        background: linear-gradient(90deg, #0b74ff, #0066cc);
+        color: #fff;
+        padding: 20px 16px;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0 16px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+        margin-top: 18px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.2s ease;
+      }
+      .card:hover {
+        transform: scale(1.02);
+      }
+      .thumb img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .title {
+        font-weight: 600;
+      }
+      .price {
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      input[type="number"] {
+        padding: 6px;
+        border-radius: 8px;
+        border: 1px solid #e6e9ef;
+      }
+      button.buy {
+        margin-top: auto;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button.buy:hover {
+        background: #0059cc;
+      }
+      .note {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 12px;
+      }
+      footer {
+        max-width: 1000px;
+        margin: 18px auto;
+        padding: 0 16px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      @media (max-width: 420px) {
+        .thumb img {
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>F&C Tech Quick Shop — Message to Buy</h1>
+      </div>
+    </header>
+
+    <main class="container">
+      <p class="note">
+        Click <strong>Buy</strong> to message the seller on Facebook Messenger.
+      </p>
+
+      <div class="grid" id="productGrid"></div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>
+          Seller contact:
+          <a href="https://www.facebook.com/profile.php?id=61564956483389" target="_blank">
+            <code>facebook.com/profile.php?id=61564956483389</code>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // --- CONFIG: your Facebook profile ID ---
+      const FB_PAGE_ID = "61564956483389";
+      // ---------------------------------------
+
+      // sample product data with images
+      const products = [
+        {
+          id: 1,
+          name: "Bluetooth Headset",
+          price: 750,
+          image:
+            "https://images.unsplash.com/photo-1610484826967-09c5720778a0?auto=format&fit=crop&w=600&q=60",
+        },
+        {
+          id: 2,
+          name: "Portable Powerbank 10k",
+          price: 850,
+          image:
+            "https://images.unsplash.com/photo-1606813902947-1c90e59e5e62?auto=format&fit=crop&w=600&q=60",
+        },
+        {
+          id: 3,
+          name: "USB-C Cable (1m)",
+          price: 120,
+          image:
+            "https://images.unsplash.com/photo-1612462689059-6a9e7e3e42df?auto=format&fit=crop&w=600&q=60",
+        },
+      ];
+
+      const grid = document.getElementById("productGrid");
+
+      function buildCard(p) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="thumb"><img src="${p.image}" alt="${p.name}" /></div>
+          <div class="title">${p.name}</div>
+          <div class="row"><div class="price">₱${p.price.toLocaleString()}</div></div>
+          <div class="row">
+            <label for="qty-${p.id}" style="font-size:13px;color:var(--muted)">Qty</label>
+            <input id="qty-${p.id}" type="number" min="1" value="1" style="width:70px" />
+          </div>
+          <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
+        `;
+        return card;
+      }
+
+      // render products
+      products.forEach((p) => grid.appendChild(buildCard(p)));
+
+      // handle buy clicks
+      grid.addEventListener("click", (ev) => {
+        const btn = ev.target.closest("button.buy");
+        if (!btn) return;
+        const id = +btn.dataset.id;
+        const product = products.find((x) => x.id === id);
+        const qtyEl = document.getElementById(`qty-${id}`);
+        const qty = Math.max(1, parseInt(qtyEl.value || "1"));
+
+        // Messenger link
+        const ref = encodeURIComponent(`order|${product.id}|qty:${qty}`);
+        const url = `https://m.me/${encodeURIComponent(FB_PAGE_ID)}?ref=${ref}`;
+        window.open(url, "_blank");
+      });
+    </script>
+  </body>
+</html>
