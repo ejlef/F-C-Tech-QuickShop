@@ -3,100 +3,120 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>F&C Tech</title>
+    <title>F&C Tech Quick Shop</title>
     <style>
       :root {
+        --bg: #f8fafc;
         --card: #fff;
-        --bg: #f2f4f8;
         --accent: #0b74ff;
+        --text: #1e293b;
         --muted: #6b7280;
+        --radius: 14px;
       }
 
       body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto,
-          "Helvetica Neue", Arial;
+        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial, sans-serif;
         margin: 0;
         background: var(--bg);
-        color: #111;
+        color: var(--text);
+        line-height: 1.6;
       }
 
       header {
         background: linear-gradient(90deg, #0b74ff, #0066cc);
         color: #fff;
-        padding: 20px 16px;
+        padding: 24px 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
       }
 
       .container {
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 0 16px;
+        max-width: 1100px;
+        margin: 30px auto;
+        padding: 0 20px;
       }
 
-      h1 {
-        margin: 0;
-        font-size: 20px;
+      .note {
+        font-size: 15px;
+        color: var(--muted);
+        margin-bottom: 24px;
+        text-align: center;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 18px;
-        margin-top: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
       }
 
       .card {
         background: var(--card);
-        border-radius: 12px;
-        padding: 14px;
-        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+        border-radius: var(--radius);
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+        overflow: hidden;
+        transition: all 0.25s ease;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        transition: transform 0.2s ease;
       }
 
       .card:hover {
-        transform: scale(1.02);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
       }
 
       .thumb {
         width: 100%;
-        height: 180px;
-        border-radius: 8px;
-        overflow: hidden;
+        height: 200px;
+        background: #f1f5f9;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f0f0f0;
       }
 
       .thumb img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* show full image, no crop */
-        border-radius: 8px;
-        background-color: #fff;
+        object-fit: contain;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .card-body {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
 
       .title {
+        font-size: 16px;
         font-weight: 600;
       }
 
       .price {
         color: var(--accent);
         font-weight: 700;
+        font-size: 17px;
       }
 
       .row {
         display: flex;
-        gap: 8px;
+        gap: 10px;
         align-items: center;
       }
 
       input[type="number"] {
-        padding: 6px;
+        padding: 6px 10px;
         border-radius: 8px;
-        border: 1px solid #e6e9ef;
+        border: 1px solid #d1d5db;
+        width: 70px;
+        font-size: 14px;
       }
 
       button.buy {
@@ -104,33 +124,43 @@
         background: var(--accent);
         color: #fff;
         border: none;
-        padding: 10px;
+        padding: 12px;
         border-radius: 10px;
         cursor: pointer;
         font-weight: 600;
+        font-size: 15px;
+        transition: background 0.2s ease;
       }
 
       button.buy:hover {
-        background: #0059cc;
-      }
-
-      .note {
-        font-size: 13px;
-        color: var(--muted);
-        margin-top: 12px;
+        background: #005bcb;
       }
 
       footer {
-        max-width: 1000px;
-        margin: 18px auto;
-        padding: 0 16px;
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 16px 20px;
         color: var(--muted);
-        font-size: 13px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 1px solid #e2e8f0;
       }
 
-      @media (max-width: 420px) {
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 18px;
+        }
         .thumb {
-          height: 140px;
+          height: 160px;
         }
       }
     </style>
@@ -139,48 +169,41 @@
   <body>
     <header>
       <div class="container">
-        <h1>F&C Tech Quick Shop — Message to Buy</h1>
+        <h1>F&C Tech Quick Shop</h1>
       </div>
     </header>
 
     <main class="container">
       <p class="note">
-        Click <strong>Buy</strong> to message the seller on Facebook Messenger.
+        Click <strong>Buy</strong> to message the seller directly on Messenger.
       </p>
 
       <div class="grid" id="productGrid"></div>
     </main>
 
     <footer>
-      <div class="container">
-        <div>
-          Seller contact:
-          <a
-            href="https://www.facebook.com/profile.php?id=61564956483389"
-            target="_blank"
-          >
-            <code>facebook.com/profile.php?id=61564956483389</code>
-          </a>
-        </div>
-      </div>
+      Seller contact:
+      <a
+        href="https://www.facebook.com/profile.php?id=61564956483389"
+        target="_blank"
+        >facebook.com/profile.php?id=61564956483389</a
+      >
+      <br />© 2025 F&C Tech. All rights reserved.
     </footer>
 
     <script>
-      // --- CONFIG: your Facebook profile ID ---
       const FB_PAGE_ID = "61564956483389";
-      // ---------------------------------------
 
-      // product data
       const products = [
         {
           id: 1,
-          name: "Office 2021 Professional Plus LifeTime License",
+          name: "Office 2021 Professional Plus — Lifetime License",
           price: 200,
           image: "./2021.jpg",
         },
         {
           id: 2,
-          name: "Office 2024 Professional Plus LifeTime License",
+          name: "Office 2024 Professional Plus — Lifetime License",
           price: 300,
           image: "./2024.jpg",
         },
@@ -199,30 +222,27 @@
         card.className = "card";
         card.innerHTML = `
           <div class="thumb"><img src="${p.image}" alt="${p.name}" /></div>
-          <div class="title">${p.name}</div>
-          <div class="row"><div class="price">₱${p.price.toLocaleString()}</div></div>
-          <div class="row">
-            <label for="qty-${
-              p.id
-            }" style="font-size:13px;color:var(--muted)">Qty</label>
-            <input id="qty-${
-              p.id
-            }" type="number" min="1" value="1" style="width:70px" />
+          <div class="card-body">
+            <div class="title">${p.name}</div>
+            <div class="price">₱${p.price.toLocaleString()}</div>
+            <div class="row">
+              <label for="qty-${
+                p.id
+              }" style="font-size:13px;color:var(--muted)">Qty</label>
+              <input id="qty-${p.id}" type="number" min="1" value="1" />
+            </div>
+            <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
           </div>
-          <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
         `;
         return card;
       }
 
-      // render product cards
       products.forEach((p) => grid.appendChild(buildCard(p)));
 
-      // detect if user on mobile
       function isMobile() {
         return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       }
 
-      // handle buy click
       grid.addEventListener("click", (ev) => {
         const btn = ev.target.closest("button.buy");
         if (!btn) return;
@@ -230,17 +250,12 @@
         const product = products.find((x) => x.id === id);
         const qtyEl = document.getElementById(`qty-${id}`);
         const qty = Math.max(1, parseInt(qtyEl.value || "1"));
-
-        // message buyer will see
         const message = encodeURIComponent(
           `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`
         );
-
-        // choose correct Messenger link
         const baseUrl = isMobile()
           ? `https://m.me/${FB_PAGE_ID}?text=${message}`
           : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
-
         window.open(baseUrl, "_blank");
       });
     </script>
