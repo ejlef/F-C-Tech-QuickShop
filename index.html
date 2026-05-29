@@ -113,10 +113,9 @@
         const message = encodeURIComponent(
           `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`,
         );
-        const baseUrl = isMobile()
-          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
-          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
-        window.open(baseUrl, "_blank");
+      const baseUrl = isMobile()
+  ? `https://m.me/${FB_PAGE_ID}?ref=${message}`
+  : `https://www.messenger.com/t/${FB_PAGE_ID}?ref=${message}`;
       });
     </script>
   </body>
