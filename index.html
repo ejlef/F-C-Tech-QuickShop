@@ -43,26 +43,21 @@
       name: "Microsoft Office 2024 Professional Plus — Lifetime Activation",
       price: 250,
       image: "./2024.png",
-      description:
-        "Affordable one-time installation service for Microsoft Office 2024 Professional.",
+      description: "Installation service for Microsoft Office 2024 Professional.",
     },
-
     {
       id: 2,
       name: "Microsoft Office 2021 Professional Plus — Lifetime Activation",
       price: 200,
       image: "./2021.png",
-      description:
-        "Affordable one-time installation service for Microsoft Office 2021 Professional.",
+      description: "Installation service for Microsoft Office 2021 Professional.",
     },
-
     {
       id: 3,
       name: "Vivo Y11 (1906) Software Recovery Service",
       price: 350,
       image: "./vivo y11 1906.jpeg",
-      description:
-        "Software troubleshooting and recovery service for Vivo Y11 devices.",
+      description: "Software repair and recovery service.",
     },
   ];
 
@@ -72,33 +67,16 @@
     const card = document.createElement("div");
 
     card.className = "card";
-
     card.innerHTML = `
-      <div class="thumb">
-        <img src="${p.image}" alt="${p.name}" />
-      </div>
-
+      <div class="thumb"><img src="${p.image}" alt="${p.name}"></div>
       <div class="card-body">
         <div class="title">${p.name}</div>
-
         <p class="desc">${p.description}</p>
-
         <div class="price">₱${p.price.toLocaleString()}</div>
 
         <div class="row">
-          <label
-            for="qty-${p.id}"
-            style="font-size:13px;color:var(--muted)"
-          >
-            Qty
-          </label>
-
-          <input
-            id="qty-${p.id}"
-            type="number"
-            min="1"
-            value="1"
-          />
+          <label for="qty-${p.id}" style="font-size:13px;color:var(--muted)">Qty</label>
+          <input id="qty-${p.id}" type="number" min="1" value="1" />
         </div>
 
         <button class="buy" data-id="${p.id}">
@@ -110,49 +88,38 @@
     return card;
   }
 
-  // render products
-  products.forEach((p) => {
-    grid.appendChild(buildCard(p));
-  });
+  products.forEach(p => grid.appendChild(buildCard(p)));
 
-  // safer Messenger open
   grid.addEventListener("click", async (ev) => {
-    const btn = ev.target.closest("button.buy");
-
+    const btn = ev.target.closest(".buy");
     if (!btn) return;
 
     const id = Number(btn.dataset.id);
-
-    const product = products.find((x) => x.id === id);
-
+    const product = products.find(p => p.id === id);
     if (!product) return;
 
-    const qtyEl = document.getElementById(`qty-${id}`);
-
-    const qty = Math.max(1, parseInt(qtyEl.value || "1"));
+    const qty = Math.max(
+      1,
+      parseInt(document.getElementById(`qty-${id}`).value || "1")
+    );
 
     const message =
-      `Hello! I'm interested in buying:\n\n` +
+      `Hi! I want to order:\n\n` +
       `${product.name}\n` +
       `Price: ₱${product.price}\n` +
-      `Quantity: ${qty}`;
+      `Qty: ${qty}`;
 
-    // copy message to clipboard
+    // copy message (important fallback)
     try {
       await navigator.clipboard.writeText(message);
+    } catch (e) {}
 
-      alert(
-        "Message copied!\n\nMessenger will open.\nPaste the message to seller."
-      );
-    } catch (err) {
-      console.log("Clipboard copy failed.");
-    }
-
-    // fixed Messenger URL
+    // ⭐ BEST Messenger-safe link (prevents Play Store redirect)
     const messengerUrl =
       `https://www.facebook.com/messages/t/${FB_PAGE_ID}`;
 
-    window.open(messengerUrl, "_blank");
+    // open in SAME tab = avoids Play Store redirect loop
+    window.location.href = messengerUrl;
   });
 </script>
   </body>
