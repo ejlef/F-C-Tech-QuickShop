@@ -34,80 +34,126 @@
       <br />© 2025 F&C Tech. All rights reserved.
     </footer>
 
-    <script>
-      const FB_PAGE_ID = "61564956483389";
+<script>
+  const FB_PAGE_ID = "61564956483389";
 
-      const products = [
-        {
-          id: 1,
-          name: "Microsoft Office 2024 Professional Plus — Lifetime Activation (Cracked)",
-          price: 150,
-          image: "./2024.png",
-          description:
-            "Affordable one-time purchase of Microsoft Office 2024 Professional — no subscriptions, no renewals, and works offline for everyday use.",
-        },
-        {
-          id: 2,
-          name: "Microsoft Office 2021 Professional Plus — Lifetime Activation (Cracked)",
-          price: 100,
-          image: "./2021.png",
-          description:
-            "Affordable one-time purchase of Microsoft Office 2021 Professional — no subscriptions, no renewals, and works offline for everyday use.",
-        },
-        {
-          id: 3,
-          name: "Vivo Y11 (1906) - Forgot Password - Google Lock(FRP)",
-          price: 350,
-          image: "./vivo y11 1906.jpeg",
-          description:
-            "Get your Vivo Y11 (1906) unlocked hassle-free! We’ll remove any password or Google lock so you can access your device again with ease.",
-        },
-      ];
+  const products = [
+    {
+      id: 1,
+      name: "Microsoft Office 2024 Professional Plus — Lifetime Activation",
+      price: 250,
+      image: "./2024.png",
+      description:
+        "Affordable one-time installation service for Microsoft Office 2024 Professional.",
+    },
 
-      const grid = document.getElementById("productGrid");
+    {
+      id: 2,
+      name: "Microsoft Office 2021 Professional Plus — Lifetime Activation",
+      price: 200,
+      image: "./2021.png",
+      description:
+        "Affordable one-time installation service for Microsoft Office 2021 Professional.",
+    },
 
-      function buildCard(p) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="thumb"><img src="${p.image}" alt="${p.name}" /></div>
-          <div class="card-body">
-            <div class="title">${p.name}</div>
-            <p class="desc">${p.description}</p>
-            <div class="price">₱${p.price.toLocaleString()}</div>
-            <div class="row">
-              <label for="qty-${
-                p.id
-              }" style="font-size:13px;color:var(--muted)">Qty</label>
-              <input id="qty-${p.id}" type="number" min="1" value="1" />
-            </div>
-            <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
-          </div>
-        `;
-        return card;
-      }
+    {
+      id: 3,
+      name: "Vivo Y11 (1906) Software Recovery Service",
+      price: 350,
+      image: "./vivo y11 1906.jpeg",
+      description:
+        "Software troubleshooting and recovery service for Vivo Y11 devices.",
+    },
+  ];
 
-      products.forEach((p) => grid.appendChild(buildCard(p)));
+  const grid = document.getElementById("productGrid");
 
-      function isMobile() {
-        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      }
+  function buildCard(p) {
+    const card = document.createElement("div");
 
-      grid.addEventListener("click", (ev) => {
-        const btn = ev.target.closest("button.buy");
-        if (!btn) return;
-        const id = +btn.dataset.id;
-        const product = products.find((x) => x.id === id);
-        const qtyEl = document.getElementById(`qty-${id}`);
-        const qty = Math.max(1, parseInt(qtyEl.value || "1"));
-        const message = encodeURIComponent(
-          `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`
-        );
-        const baseUrl = isMobile()
-          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
-          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
-        window.open(baseUrl, "_blank");
-      });
-    </script>
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="thumb">
+        <img src="${p.image}" alt="${p.name}" />
+      </div>
+
+      <div class="card-body">
+        <div class="title">${p.name}</div>
+
+        <p class="desc">${p.description}</p>
+
+        <div class="price">₱${p.price.toLocaleString()}</div>
+
+        <div class="row">
+          <label
+            for="qty-${p.id}"
+            style="font-size:13px;color:var(--muted)"
+          >
+            Qty
+          </label>
+
+          <input
+            id="qty-${p.id}"
+            type="number"
+            min="1"
+            value="1"
+          />
+        </div>
+
+        <button class="buy" data-id="${p.id}">
+          Buy — Message Seller
+        </button>
+      </div>
+    `;
+
+    return card;
+  }
+
+  // render products
+  products.forEach((p) => {
+    grid.appendChild(buildCard(p));
+  });
+
+  // safer Messenger open
+  grid.addEventListener("click", async (ev) => {
+    const btn = ev.target.closest("button.buy");
+
+    if (!btn) return;
+
+    const id = Number(btn.dataset.id);
+
+    const product = products.find((x) => x.id === id);
+
+    if (!product) return;
+
+    const qtyEl = document.getElementById(`qty-${id}`);
+
+    const qty = Math.max(1, parseInt(qtyEl.value || "1"));
+
+    const message =
+      `Hello! I'm interested in buying:\n\n` +
+      `${product.name}\n` +
+      `Price: ₱${product.price}\n` +
+      `Quantity: ${qty}`;
+
+    // copy message to clipboard
+    try {
+      await navigator.clipboard.writeText(message);
+
+      alert(
+        "Message copied!\n\nMessenger will open.\nPaste the message to seller."
+      );
+    } catch (err) {
+      console.log("Clipboard copy failed.");
+    }
+
+    // fixed Messenger URL
+    const messengerUrl =
+      `https://www.facebook.com/messages/t/${FB_PAGE_ID}`;
+
+    window.open(messengerUrl, "_blank");
+  });
+</script>
   </body>
 </html>
