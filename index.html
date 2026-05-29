@@ -33,110 +33,81 @@
       >
       <br />© 2025 F&C Tech. All rights reserved.
     </footer>
-<script>
-  const FB_PAGE_ID = "61564956483389";
 
-  const products = [
-    {
-      id: 1,
-      name: "Microsoft Office 2024 Professional Plus — Lifetime Activation",
-      price: 250,
-      image: "./2024.png",
-      description:
-        "Installation service for Microsoft Office 2024 Professional.",
-    },
-    {
-      id: 2,
-      name: "Microsoft Office 2021 Professional Plus — Lifetime Activation",
-      price: 200,
-      image: "./2021.png",
-      description:
-        "Installation service for Microsoft Office 2021 Professional.",
-    },
-    {
-      id: 3,
-      name: "Vivo Y11 Software Recovery Service",
-      price: 350,
-      image: "./vivo y11 1906.jpeg",
-      description:
-        "Phone software troubleshooting and recovery service.",
-    },
-  ];
+    <script>
+      const FB_PAGE_ID = "61564956483389";
 
-  const grid = document.getElementById("productGrid");
+      const products = [
+        {
+          id: 1,
+          name: "Microsoft Office 2024 Professional Plus — Lifetime Activation (Cracked)",
+          price: 250,
+          image: "./2024.png",
+          description:
+            "Affordable one-time purchase of Microsoft Office 2024 Professional — no subscriptions, no renewals, and works offline for everyday use.",
+        },
+        {
+          id: 2,
+          name: "Microsoft Office 2021 Professional Plus — Lifetime Activation (Cracked)",
+          price: 200,
+          image: "./2021.png",
+          description:
+            "Affordable one-time purchase of Microsoft Office 2021 Professional — no subscriptions, no renewals, and works offline for everyday use.",
+        },
+        {
+          id: 3,
+          name: "Vivo Y11 (1906) - Forgot Password - Google Lock(FRP)",
+          price: 350,
+          image: "./vivo y11 1906.jpeg",
+          description:
+            "Get your Vivo Y11 (1906) unlocked hassle-free! We’ll remove any password or Google lock so you can access your device again with ease.",
+        },
+      ];
 
-  // BUILD PRODUCT CARDS
-  function buildCard(p) {
-    const card = document.createElement("div");
-    card.className = "card";
+      const grid = document.getElementById("productGrid");
 
-    card.innerHTML = `
-      <div class="thumb">
-        <img src="${p.image}" alt="${p.name}" />
-      </div>
+      function buildCard(p) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="thumb"><img src="${p.image}" alt="${p.name}" /></div>
+          <div class="card-body">
+            <div class="title">${p.name}</div>
+            <p class="desc">${p.description}</p>
+            <div class="price">₱${p.price.toLocaleString()}</div>
+            <div class="row">
+              <label for="qty-${
+                p.id
+              }" style="font-size:13px;color:var(--muted)">Qty</label>
+              <input id="qty-${p.id}" type="number" min="1" value="1" />
+            </div>
+            <button class="buy" data-id="${p.id}">Buy — Message Seller</button>
+          </div>
+        `;
+        return card;
+      }
 
-      <div class="card-body">
-        <div class="title">${p.name}</div>
-        <p class="desc">${p.description}</p>
+      products.forEach((p) => grid.appendChild(buildCard(p)));
 
-        <div class="price">₱${p.price.toLocaleString()}</div>
+      function isMobile() {
+        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      }
 
-        <div class="row">
-          <label for="qty-${p.id}" style="font-size:13px;color:var(--muted)">
-            Qty
-          </label>
-
-          <input id="qty-${p.id}" type="number" min="1" value="1" />
-        </div>
-
-        <button class="buy" data-id="${p.id}">
-          Buy — Message Seller
-        </button>
-      </div>
-    `;
-
-    return card;
-  }
-
-  products.forEach(p => grid.appendChild(buildCard(p)));
-
-  // CLICK HANDLER (FIXED)
-  grid.addEventListener("click", async (ev) => {
-    const btn = ev.target.closest(".buy");
-    if (!btn) return;
-
-    const id = Number(btn.dataset.id);
-    const product = products.find(p => p.id === id);
-    if (!product) return;
-
-    const qty = Math.max(
-      1,
-      parseInt(document.getElementById(`qty-${id}`).value || "1")
-    );
-
-    // ORDER MESSAGE
-    const message =
-      `🛒 NEW ORDER\n\n` +
-      `Product: ${product.name}\n` +
-      `Price: ₱${product.price}\n` +
-      `Quantity: ${qty}\n\n` +
-      `Please confirm availability.`;
-
-    // COPY MESSAGE (important fallback)
-    try {
-      await navigator.clipboard.writeText(message);
-      alert("Order copied! Paste it in Messenger.");
-    } catch (e) {
-      alert("Copy failed. Please copy manually.");
-    }
-
-    // SAFE MESSENGER OPEN (NO m.me, NO PLAY STORE)
-    const messengerUrl =
-      `https://www.facebook.com/messages/t/${FB_PAGE_ID}`;
-
-    // use location instead of window.open (prevents redirect issues)
-    window.location.href = messengerUrl;
-  });
-</script>
+      grid.addEventListener("click", (ev) => {
+        const btn = ev.target.closest("button.buy");
+        if (!btn) return;
+        const id = +btn.dataset.id;
+        const product = products.find((x) => x.id === id);
+        const qtyEl = document.getElementById(`qty-${id}`);
+        const qty = Math.max(1, parseInt(qtyEl.value || "1"));
+        const message = encodeURIComponent(
+          `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`
+        );
+        const baseUrl = isMobile()
+          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
+          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
+        window.open(baseUrl, "_blank");
+      });
+    </script>
   </body>
 </html>
