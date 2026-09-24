@@ -2,122 +2,612 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>F&C Tech Quick Shop</title>
-    <link href="ico.ico" rel="icon" type="image/x-icon" />
-    <!-- External CSS -->
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <meta
+      name="description"
+      content="F&C Tech - Phone repair, computer services, software installation and technology services."
+    />
+
+    <meta name="theme-color" content="#0b0d12" />
+
+    <link rel="icon" href="ico.ico" type="image/x-icon" />
+
+    <title>F&C Tech | Services & Prices</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- =========================
+       HEADER
+  ========================== -->
+
     <header>
-      <div class="container">
-        <h1>F&C Tech Quick Shop</h1>
+      <div class="container nav">
+        <a href="#" class="brand">
+          <div class="brand-logo">F&C</div>
+
+          <span>F&C Tech</span>
+        </a>
+
+        <a
+          class="facebook-btn"
+          href="https://www.facebook.com/profile.php?id=61564956483389"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>f</span>
+          Facebook Page
+        </a>
       </div>
     </header>
 
-    <main class="container">
-      <p class="note">
-        Click <strong>Buy</strong> to message the seller directly on Messenger.
-      </p>
+    <!-- =========================
+       HERO
+  ========================== -->
 
-      <div class="grid" id="productGrid"></div>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="badge">⚡ TECH SERVICES</div>
+
+            <h1>
+              Tech Solutions.<br />
+              <span> Fair & Simple. </span>
+            </h1>
+
+            <p>
+              Looking for reliable technology services? Explore our services,
+              view our pricing, and connect with us directly through Facebook
+              Messenger.
+            </p>
+
+            <!-- SEARCH -->
+
+            <div class="search-area">
+              <div class="search-box">
+                <span class="search-icon"> 🔍 </span>
+
+                <input
+                  id="searchInput"
+                  type="search"
+                  placeholder="Search services..."
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+
+            <!-- CATEGORIES -->
+
+            <div class="categories" id="categories">
+              <button class="category active" data-category="all">
+                All Services
+              </button>
+
+              <button class="category" data-category="phone">📱 Phone</button>
+
+              <button class="category" data-category="computer">
+                💻 Computer
+              </button>
+
+              <button class="category" data-category="software">
+                🧩 Software
+              </button>
+
+              <button class="category" data-category="repair">🔧 Repair</button>
+
+              <button class="category" data-category="security">
+                🔐 Phone Unlock
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         SERVICES
+    ========================== -->
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Available Services</h2>
+            </div>
+
+            <div class="service-count" id="serviceCount">0 services</div>
+          </div>
+
+          <div class="service-grid" id="serviceGrid"></div>
+
+          <div class="empty" id="emptyState">
+            <div class="empty-icon">🔍</div>
+
+            <strong> No services found </strong>
+
+            Try another search or choose another category.
+          </div>
+
+          <!-- =========================
+             HOW IT WORKS
+        ========================== -->
+
+          <div class="section-header" style="margin-top: 55px">
+            <h2 class="section-title">How to Avail</h2>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-icon">🔎</div>
+
+              <h3>1. Choose a Service</h3>
+
+              <p>Browse the service categories and check the listed price.</p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">💬</div>
+
+              <h3>2. Message Us</h3>
+
+              <p>Click the Messenger button to send us your service inquiry.</p>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">🛠️</div>
+
+              <h3>3. Get Your Service</h3>
+
+              <p>
+                We'll confirm the details, availability, and final price before
+                proceeding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- =========================
+       FOOTER
+  ========================== -->
+
     <footer>
-      Seller contact:
-      <a
-        href="https://www.facebook.com/profile.php?id=61564956483389"
-        target="_blank"
-        >facebook.com/profile.php?id=61564956483389</a
-      >
-      <br />© 2025 F&C Tech. All rights reserved.
+      <div class="container">
+        <strong style="color: white"> F&C Tech Quick Shop </strong>
+
+        <br />
+
+        Technology Services • Repair • Support
+
+        <br /><br />
+
+        Facebook:
+        <a
+          href="https://www.facebook.com/profile.php?id=61564956483389"
+          target="_blank"
+          rel="noopener"
+        >
+          F&C Tech
+        </a>
+
+        <br />
+
+        © 2026 F&C Tech. All rights reserved.
+      </div>
     </footer>
+
+    <!-- =========================
+       MOBILE CONTACT
+  ========================== -->
+
+    <div class="mobile-contact">
+      <a href="https://m.me/61564956483389" target="_blank" rel="noopener">
+        💬 Message F&C Tech on Messenger
+      </a>
+    </div>
+
+    <!-- =========================
+       JAVASCRIPT
+  ========================== -->
 
     <script>
       const FB_PAGE_ID = "61564956483389";
 
-      const products = [
+      /*
+            =========================================
+            SERVICES
+            =========================================
+
+            category values:
+
+            phone
+            computer
+            software
+            repair
+      Phone Device Unlock Services
+            Add new services here.
+          */
+
+      const services = [
         {
           id: 1,
-          name: "Microsoft Office 2024 Professional Plus — Lifetime Activation (Cracked)",
-          price: 250,
-          image: "./2024.png",
+
+          name: "Phone Button Replacement",
+
+          category: "repair",
+
+          price: 50,
+
+          priceLabel: "per piece",
+
+          image:
+            "https://img.drz.lazcdn.com/static/pk/p/e8bcee5c300cf438f1e293496f304465.jpg_960x960q80.jpg_.webp",
+
           description:
-            "Affordable one-time purchase of Microsoft Office 2024 Professional — no subscriptions, no renewals, and works offline for everyday use.",
+            "Replacement service for selected Android power, volume, or home buttons.",
         },
+
         {
           id: 2,
-          name: "Microsoft Office 2021 Professional Plus — Lifetime Activation (Cracked)",
-          price: 200,
-          image: "./2021.png",
+
+          name: "Microsoft Office 2024 Installation & Activation — Lifetime Use",
+
+          category: "software",
+
+          price: 250,
+
+          priceLabel: "service",
+
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTYZ40Kg-j4zIXehIt61EHWuvm-ha-GIT7JBYMXHLeiw&s=10",
+
           description:
-            "Affordable one-time purchase of Microsoft Office 2021 Professional — no subscriptions, no renewals, and works offline for everyday use.",
+            "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
+
         {
           id: 3,
-          name: "Vivo Y11 (1906) - Forgot Password - Google Lock(FRP)",
-          price: 350,
-          image: "./vivo y11 1906.jpeg",
+
+          name: "Microsoft Office 2021 Installation & Activation — Lifetime Use",
+
+          category: "software",
+
+          price: 200,
+
+          priceLabel: "service",
+
+          image:
+            "https://keytive.com/wp-content/uploads/2023/01/Office-2021-Professional-Plus-PC.png",
+
           description:
-            "Get your Vivo Y11 (1906) unlocked hassle-free! We’ll remove any password or Google lock so you can access your device again with ease.",
+            "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
 
         {
           id: 4,
-          name: "Android Mobile Button Replacement Service (₱100 per pcs)",
-          price: 100,
+
+          name: "soon",
+
+          category: "phone",
+
+          price: 0,
+
+          priceLabel: "soon",
+
           image:
-            "https://img.drz.lazcdn.com/static/pk/p/e8bcee5c300cf438f1e293496f304465.jpg_960x960q80.jpg_.webp",
+            "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+
+          description: "soon",
+        },
+
+        {
+          id: 5,
+
+          name: "Computer Troubleshooting",
+
+          category: "computer",
+
+          price: 150,
+
+          priceLabel: "starting",
+
+          image:
+            "https://thumbs.dreamstime.com/b/computer-troubleshooting-services-flat-design-vector-illustration-computer-troubleshooting-services-flat-design-vector-142588324.jpg",
+
           description:
-            "Mobile button replacement service for Android devices. ₱100 per piece (power, volume, or home button). Fast repair service.",
+            "Basic computer troubleshooting, software problems, and system checks.",
+        },
+
+        {
+          id: 6,
+
+          name: "OPPO A3x unlock",
+
+          category: "security",
+
+          price: 300,
+
+          priceLabel: "Per Unit",
+
+          image: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3x.jpg",
+
+          description:
+            "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
+        },
+
+        {
+          id: 7,
+          name: "Oppo A5s (AX5s) unlock",
+          category: "security",
+          price: 250,
+          priceLabel: "Per Unit",
+          image: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a5s-r.jpg",
+          description:
+            "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
+        },
+        {
+          id: 8,
+          name: "Android LCD Screen Replacement",
+          category: "repair",
+          price: 0,
+          priceLabel: "Price depends on model",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqrWYw58Ix6RKJUFXvfmNjCFq8ETot7Ex5UtJPI6glg&s=10",
+          description:
+            "LCD screen replacement for Android phones. Price varies depending on the phone model and LCD type. Message us for availability and exact pricing.",
+        },
+        {
+          id: 9,
+          name: "Xiaomi Redmi 9C unlock",
+          category: "security",
+          price: 250,
+          priceLabel: "Per Unit",
+          image: "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9c-.jpg",
+          description:
+            "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
+        },
+        {
+          id: 10,
+          name: "Realme C25Y (RMX3269) unlock",
+          category: "security",
+          price: 300,
+          priceLabel: "Per Unit",
+          image: "https://fdn2.gsmarena.com/vv/bigpic/realme-c25y.jpg",
+          description:
+            "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
       ];
 
-      const grid = document.getElementById("productGrid");
+      const serviceGrid = document.getElementById("serviceGrid");
 
-      function buildCard(p) {
-        const card = document.createElement("div");
+      const searchInput = document.getElementById("searchInput");
+
+      const categories = document.getElementById("categories");
+
+      const serviceCount = document.getElementById("serviceCount");
+
+      const emptyState = document.getElementById("emptyState");
+
+      let selectedCategory = "all";
+
+      /*
+            =========================================
+            MESSENGER
+            =========================================
+          */
+
+      function openMessenger(service) {
+        const message =
+          `Hello F&C Tech!%0A%0A` +
+          `I'm interested in:%0A` +
+          `${encodeURIComponent(service.name)}%0A%0A` +
+          `Listed price: ₱${service.price.toLocaleString()}%0A%0A` +
+          `Please provide more details. Thank you!`;
+
+        const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        const url = mobile
+          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
+          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
+
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      /*
+            =========================================
+            CARD
+            =========================================
+          */
+
+      function buildCard(service) {
+        const card = document.createElement("article");
+
         card.className = "card";
+
         card.innerHTML = `
-          <div class="thumb"><img src="${p.image}" alt="${p.name}" /></div>
-          <div class="card-body">
-            <div class="title">${p.name}</div>
-            <p class="desc">${p.description}</p>
-            <div class="price">₱${p.price.toLocaleString()}</div>
-            <div class="row">
-              <label for="qty-${
-                p.id
-              }" style="font-size:13px;color:var(--muted)">Qty</label>
-              <input id="qty-${p.id}" type="number" min="1" value="1" />
-            </div>
-            <button class="buy" data-id="${p.id}">Avail — Message Seller</button>
-          </div>
-        `;
+
+              <div class="thumb">
+
+                <img
+                  src="${service.image}"
+                  alt="${service.name}"
+                  loading="lazy"
+                  onerror="this.src='https://placehold.co/800x500/11141b/ffffff?text=F%26C+Tech'"
+                >
+
+                <div class="category-label">
+                  ${getCategoryName(service.category)}
+                </div>
+
+              </div>
+
+
+              <div class="card-body">
+
+                <div class="title">
+                  ${service.name}
+                </div>
+
+
+                <p class="desc">
+                  ${service.description}
+                </p>
+
+
+                <div class="bottom">
+
+                  <div class="price">
+
+                    <small>
+                      ${service.priceLabel}
+                    </small>
+
+                    ₱${service.price.toLocaleString()}
+
+                  </div>
+
+
+                  <button
+                    class="message-btn"
+                    type="button"
+                    data-id="${service.id}"
+                  >
+                    💬 Message
+                  </button>
+
+                </div>
+
+              </div>
+
+            `;
+
         return card;
       }
 
-      products.forEach((p) => grid.appendChild(buildCard(p)));
+      /*
+            =========================================
+            CATEGORY NAME
+            =========================================
+          */
 
-      function isMobile() {
-        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      function getCategoryName(category) {
+        const names = {
+          phone: "📱 Phone",
+
+          computer: "💻 Computer",
+
+          software: "🧩 Software",
+
+          repair: "🔧 Repair",
+
+          security: "🔐 Phone Unlock",
+        };
+
+        return names[category] || "Service";
       }
 
-      grid.addEventListener("click", (ev) => {
-        const btn = ev.target.closest("button.buy");
-        if (!btn) return;
-        const id = +btn.dataset.id;
-        const product = products.find((x) => x.id === id);
-        const qtyEl = document.getElementById(`qty-${id}`);
-        const qty = Math.max(1, parseInt(qtyEl.value || "1"));
-        const message = encodeURIComponent(
-          `Hello! I'm interested in buying ${product.name} (₱${product.price}) x${qty}.`,
-        );
-        const baseUrl = isMobile()
-          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
-          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
-        window.open(baseUrl, "_blank");
+      /*
+            =========================================
+            RENDER
+            =========================================
+          */
+
+      function renderServices() {
+        const search = searchInput.value.trim().toLowerCase();
+
+        const filtered = services.filter((service) => {
+          const matchesCategory =
+            selectedCategory === "all" || service.category === selectedCategory;
+
+          const searchable = (
+            service.name +
+            " " +
+            service.description +
+            " " +
+            service.category
+          ).toLowerCase();
+
+          const matchesSearch = searchable.includes(search);
+
+          return matchesCategory && matchesSearch;
+        });
+
+        serviceGrid.innerHTML = "";
+
+        filtered.forEach((service) => {
+          serviceGrid.appendChild(buildCard(service));
+        });
+
+        serviceCount.textContent = `${filtered.length} ${
+          filtered.length === 1 ? "service" : "services"
+        }`;
+
+        emptyState.classList.toggle("show", filtered.length === 0);
+      }
+
+      /*
+            =========================================
+            CATEGORY CLICK
+            =========================================
+          */
+
+      categories.addEventListener("click", (event) => {
+        const button = event.target.closest(".category");
+
+        if (!button) return;
+
+        selectedCategory = button.dataset.category;
+
+        document.querySelectorAll(".category").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        renderServices();
       });
+
+      /*
+            =========================================
+            SEARCH
+            =========================================
+          */
+
+      searchInput.addEventListener("input", renderServices);
+
+      /*
+            =========================================
+            MESSAGE BUTTON
+            =========================================
+          */
+
+      serviceGrid.addEventListener("click", (event) => {
+        const button = event.target.closest(".message-btn");
+
+        if (!button) return;
+
+        const id = Number(button.dataset.id);
+
+        const service = services.find((item) => item.id === id);
+
+        if (service) {
+          openMessenger(service);
+        }
+      });
+
+      /*
+            =========================================
+            INITIAL LOAD
+            =========================================
+          */
+
+      renderServices();
     </script>
   </body>
 </html>
