@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,9 +24,31 @@
   </head>
 
   <body>
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <div id="fbBrowserNotice" class="fb-browser-notice">
+      <div class="fb-browser-box">
+        <div class="fb-browser-icon">🌐</div>
+
+        <div class="fb-browser-content">
+          <strong>Open in your browser</strong>
+
+          <p>
+            For the best experience, open F&C Tech in Chrome, Safari, or your
+            default browser.
+          </p>
+        </div>
+
+        <button id="openExternalBrowser" type="button">Open Browser</button>
+
+        <button
+          id="closeFbNotice"
+          class="fb-close"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+    </div>
 
     <header>
       <div class="container nav">
@@ -46,10 +69,6 @@
       </div>
     </header>
 
-    <!-- =========================
-         HERO
-    ========================== -->
-
     <main>
       <section class="hero">
         <div class="container">
@@ -67,8 +86,6 @@
               Messenger.
             </p>
 
-            <!-- SEARCH -->
-
             <div class="search-area">
               <div class="search-box">
                 <span class="search-icon">🔍</span>
@@ -81,8 +98,6 @@
                 />
               </div>
             </div>
-
-            <!-- CATEGORIES -->
 
             <div class="categories" id="categories">
               <button class="category active" data-category="all">
@@ -109,10 +124,6 @@
         </div>
       </section>
 
-      <!-- =========================
-           SERVICES
-      ========================== -->
-
       <section class="section">
         <div class="container">
           <div class="section-header">
@@ -132,10 +143,6 @@
 
             <p>Try another search or choose another category.</p>
           </div>
-
-          <!-- =========================
-               HOW IT WORKS
-          ========================== -->
 
           <div class="section-header" style="margin-top: 55px">
             <h2 class="section-title">How to Avail</h2>
@@ -173,13 +180,9 @@
       </section>
     </main>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
     <footer>
       <div class="container">
-        <strong style="color: white"> F&C Tech Quick Shop </strong>
+        <strong style="color: white">F&C Tech Quick Shop</strong>
 
         <br />
 
@@ -203,10 +206,6 @@
       </div>
     </footer>
 
-    <!-- =========================
-         MOBILE CONTACT
-    ========================== -->
-
     <div class="mobile-contact">
       <a
         href="https://m.me/61564956483389"
@@ -218,34 +217,8 @@
       </a>
     </div>
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script>
-      /*
-      =========================================
-      FACEBOOK / MESSENGER
-      =========================================
-      */
-
       const FB_PAGE_ID = "61564956483389";
-
-      /*
-      =========================================
-      SERVICES
-      =========================================
-
-      category values:
-
-      phone
-      computer
-      software
-      repair
-      security
-
-      Add new services here.
-      */
 
       const services = [
         {
@@ -259,7 +232,6 @@
           description:
             "Replacement service for selected Android power, volume, or home buttons.",
         },
-
         {
           id: 2,
           name: "Microsoft Office 2024 Installation & Activation — Lifetime Use",
@@ -271,7 +243,6 @@
           description:
             "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
-
         {
           id: 3,
           name: "Microsoft Office 2021 Installation & Activation — Lifetime Use",
@@ -283,18 +254,16 @@
           description:
             "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
-
         {
           id: 4,
-          name: "soon",
+          name: "Soon",
           category: "phone",
           price: 0,
-          priceLabel: "soon",
+          priceLabel: "Soon",
           image:
             "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-          description: "soon",
+          description: "New phone services coming soon.",
         },
-
         {
           id: 5,
           name: "Computer Troubleshooting",
@@ -306,10 +275,9 @@
           description:
             "Basic computer troubleshooting, software problems, and system checks.",
         },
-
         {
           id: 6,
-          name: "OPPO A3x unlock",
+          name: "OPPO A3x Unlock",
           category: "security",
           price: 300,
           priceLabel: "Per Unit",
@@ -317,10 +285,9 @@
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
-
         {
           id: 7,
-          name: "Oppo A5s (AX5s) unlock",
+          name: "Oppo A5s (AX5s) Unlock",
           category: "security",
           price: 250,
           priceLabel: "Per Unit",
@@ -328,7 +295,6 @@
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
-
         {
           id: 8,
           name: "Android LCD Screen Replacement",
@@ -336,14 +302,13 @@
           price: 0,
           priceLabel: "Price depends on model",
           image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqrWYw58Ix6RKJUFXvfmNjCFq8ETot7Ex5UtJPI6glg&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqrWYw58Ix6RKFXvfmNjCFq8ETot7Ex5UtJPI6glg&s=10",
           description:
             "LCD screen replacement for Android phones. Price varies depending on the phone model and LCD type. Message us for availability and exact pricing.",
         },
-
         {
           id: 9,
-          name: "Xiaomi Redmi 9C unlock",
+          name: "Xiaomi Redmi 9C Unlock",
           category: "security",
           price: 250,
           priceLabel: "Per Unit",
@@ -351,10 +316,9 @@
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
-
         {
           id: 10,
-          name: "Realme C25Y (RMX3269) unlock",
+          name: "Realme C25Y (RMX3269) Unlock",
           category: "security",
           price: 300,
           priceLabel: "Per Unit",
@@ -364,29 +328,13 @@
         },
       ];
 
-      /*
-      =========================================
-      ELEMENTS
-      =========================================
-      */
-
       const serviceGrid = document.getElementById("serviceGrid");
-
       const searchInput = document.getElementById("searchInput");
-
       const categories = document.getElementById("categories");
-
       const serviceCount = document.getElementById("serviceCount");
-
       const emptyState = document.getElementById("emptyState");
 
       let selectedCategory = "all";
-
-      /*
-      =========================================
-      MESSENGER MESSAGE
-      =========================================
-      */
 
       function createMessengerMessage(service) {
         const price =
@@ -403,83 +351,21 @@
         );
       }
 
-      /*
-      =========================================
-      OPEN MESSENGER
-      =========================================
-
-      IMPORTANT:
-
-      Mobile:
-      Directly opens the Facebook Messenger
-      page using m.me.
-
-      Desktop:
-      Opens Messenger Web.
-
-      We intentionally do NOT use:
-
-      window.open(
-        "https://m.me/...?text=..."
-      )
-
-      because mobile Messenger/app handling of
-      query-string text can be inconsistent.
-
-      =========================================
-      */
-
       function openMessenger(service) {
         const message = createMessengerMessage(service);
-
         const encodedMessage = encodeURIComponent(message);
-
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         let messengerURL;
 
         if (isMobile) {
-          /*
-          Mobile Messenger.
-
-          The m.me URL is intentionally kept
-          simple because Facebook/Messenger
-          may ignore arbitrary text parameters
-          when opening the native app.
-          */
-
           messengerURL = `https://m.me/${FB_PAGE_ID}`;
         } else {
-          /*
-          Desktop Messenger Web.
-
-          Keep the encoded text for browsers
-          where Messenger Web accepts it.
-          */
-
           messengerURL = `https://www.messenger.com/t/${FB_PAGE_ID}?text=${encodedMessage}`;
         }
 
-        /*
-        Use the current browser location instead
-        of window.open().
-
-        This avoids mobile browsers blocking
-        the Messenger window as a popup.
-        */
-
         window.location.href = messengerURL;
       }
-
-      /*
-      =========================================
-      MOBILE CONTACT BUTTON
-      =========================================
-
-      Make sure the floating mobile button
-      always goes directly to Messenger.
-      =========================================
-      */
 
       const mobileContact = document.querySelector(".mobile-contact a");
 
@@ -489,12 +375,6 @@
         });
       }
 
-      /*
-      =========================================
-      CARD
-      =========================================
-      */
-
       function buildCard(service) {
         const card = document.createElement("article");
 
@@ -502,7 +382,6 @@
 
         card.innerHTML = `
           <div class="thumb">
-
             <img
               src="${service.image}"
               alt="${service.name}"
@@ -513,11 +392,9 @@
             <div class="category-label">
               ${getCategoryName(service.category)}
             </div>
-
           </div>
 
           <div class="card-body">
-
             <div class="title">
               ${service.name}
             </div>
@@ -527,19 +404,14 @@
             </p>
 
             <div class="bottom">
-
               <div class="price">
-
-                <small>
-                  ${service.priceLabel}
-                </small>
+                <small>${service.priceLabel}</small>
 
                 ${
                   service.price > 0
                     ? `₱${service.price.toLocaleString()}`
                     : service.priceLabel
                 }
-
               </div>
 
               <button
@@ -550,20 +422,12 @@
               >
                 💬 Message
               </button>
-
             </div>
-
           </div>
         `;
 
         return card;
       }
-
-      /*
-      =========================================
-      CATEGORY NAME
-      =========================================
-      */
 
       function getCategoryName(category) {
         const names = {
@@ -576,12 +440,6 @@
 
         return names[category] || "Service";
       }
-
-      /*
-      =========================================
-      RENDER
-      =========================================
-      */
 
       function renderServices() {
         const search = searchInput.value.trim().toLowerCase();
@@ -616,12 +474,6 @@
         emptyState.classList.toggle("show", filtered.length === 0);
       }
 
-      /*
-      =========================================
-      CATEGORY CLICK
-      =========================================
-      */
-
       categories.addEventListener("click", (event) => {
         const button = event.target.closest(".category");
 
@@ -638,19 +490,7 @@
         renderServices();
       });
 
-      /*
-      =========================================
-      SEARCH
-      =========================================
-      */
-
       searchInput.addEventListener("input", renderServices);
-
-      /*
-      =========================================
-      MESSAGE BUTTON
-      =========================================
-      */
 
       serviceGrid.addEventListener("click", (event) => {
         const button = event.target.closest(".message-btn");
@@ -658,7 +498,6 @@
         if (!button) return;
 
         const id = Number(button.dataset.id);
-
         const service = services.find((item) => item.id === id);
 
         if (service) {
@@ -666,13 +505,80 @@
         }
       });
 
-      /*
-      =========================================
-      INITIAL LOAD
-      =========================================
-      */
+      const fbBrowserNotice = document.getElementById("fbBrowserNotice");
+      const openExternalBrowser = document.getElementById(
+        "openExternalBrowser",
+      );
+      const closeFbNotice = document.getElementById("closeFbNotice");
+
+      const userAgent = navigator.userAgent || navigator.vendor || "";
+
+      const isFacebookBrowser = /FBAN|FBAV|FB_IAB|FB4A|FB4B|FBIOS|FBSN/i.test(
+        userAgent,
+      );
+
+      const isMessengerBrowser = /MessengerForiOS|MessengerForAndroid/i.test(
+        userAgent,
+      );
+
+      if (isFacebookBrowser || isMessengerBrowser) {
+        fbBrowserNotice.classList.add("show");
+      }
+
+      openExternalBrowser.addEventListener("click", function () {
+        const currentURL = window.location.href;
+
+        if (/Android/i.test(userAgent)) {
+          const cleanURL = currentURL.replace(/^https?:\/\//, "");
+
+          window.location.href =
+            "intent://" +
+            cleanURL +
+            "#Intent;" +
+            "scheme=https;" +
+            "package=com.android.chrome;" +
+            "end";
+
+          setTimeout(function () {
+            window.location.href = currentURL;
+          }, 1500);
+
+          return;
+        }
+
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+          if (navigator.clipboard) {
+            navigator.clipboard
+              .writeText(currentURL)
+              .then(function () {
+                alert(
+                  "Link copied!\n\n" +
+                    "Open Safari and paste the link to continue.",
+                );
+              })
+              .catch(function () {
+                alert(
+                  'Please use the Facebook menu and select "Open in external browser".',
+                );
+              });
+          } else {
+            alert(
+              'Please use the Facebook menu and select "Open in external browser".',
+            );
+          }
+
+          return;
+        }
+
+        window.open(currentURL, "_blank");
+      });
+
+      closeFbNotice.addEventListener("click", function () {
+        fbBrowserNotice.classList.remove("show");
+      });
 
       renderServices();
     </script>
   </body>
 </html>
+
