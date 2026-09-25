@@ -18,19 +18,19 @@
     <link rel="icon" href="ico.ico" type="image/x-icon" />
 
     <title>F&C Tech | Services & Prices</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <!-- =========================
-       HEADER
-  ========================== -->
+         HEADER
+    ========================== -->
 
     <header>
       <div class="container nav">
         <a href="#" class="brand">
           <div class="brand-logo">F&C</div>
-
           <span>F&C Tech</span>
         </a>
 
@@ -38,7 +38,7 @@
           class="facebook-btn"
           href="https://www.facebook.com/profile.php?id=61564956483389"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <span>f</span>
           Facebook Page
@@ -47,8 +47,8 @@
     </header>
 
     <!-- =========================
-       HERO
-  ========================== -->
+         HERO
+    ========================== -->
 
     <main>
       <section class="hero">
@@ -58,7 +58,7 @@
 
             <h1>
               Tech Solutions.<br />
-              <span> Fair & Simple. </span>
+              <span>Fair & Simple.</span>
             </h1>
 
             <p>
@@ -71,7 +71,7 @@
 
             <div class="search-area">
               <div class="search-box">
-                <span class="search-icon"> 🔍 </span>
+                <span class="search-icon">🔍</span>
 
                 <input
                   id="searchInput"
@@ -110,8 +110,8 @@
       </section>
 
       <!-- =========================
-         SERVICES
-    ========================== -->
+           SERVICES
+      ========================== -->
 
       <section class="section">
         <div class="container">
@@ -128,14 +128,14 @@
           <div class="empty" id="emptyState">
             <div class="empty-icon">🔍</div>
 
-            <strong> No services found </strong>
+            <strong>No services found</strong>
 
-            Try another search or choose another category.
+            <p>Try another search or choose another category.</p>
           </div>
 
           <!-- =========================
-             HOW IT WORKS
-        ========================== -->
+               HOW IT WORKS
+          ========================== -->
 
           <div class="section-header" style="margin-top: 55px">
             <h2 class="section-title">How to Avail</h2>
@@ -174,8 +174,8 @@
     </main>
 
     <!-- =========================
-       FOOTER
-  ========================== -->
+         FOOTER
+    ========================== -->
 
     <footer>
       <div class="container">
@@ -188,10 +188,11 @@
         <br /><br />
 
         Facebook:
+
         <a
           href="https://www.facebook.com/profile.php?id=61564956483389"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           F&C Tech
         </a>
@@ -203,140 +204,116 @@
     </footer>
 
     <!-- =========================
-       MOBILE CONTACT
-  ========================== -->
+         MOBILE CONTACT
+    ========================== -->
 
     <div class="mobile-contact">
-      <a href="https://m.me/61564956483389" target="_blank" rel="noopener">
+      <a
+        href="https://m.me/61564956483389"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Message F&C Tech on Messenger"
+      >
         💬 Message F&C Tech on Messenger
       </a>
     </div>
 
     <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+         JAVASCRIPT
+    ========================== -->
 
     <script>
+      /*
+      =========================================
+      FACEBOOK / MESSENGER
+      =========================================
+      */
+
       const FB_PAGE_ID = "61564956483389";
 
       /*
-            =========================================
-            SERVICES
-            =========================================
+      =========================================
+      SERVICES
+      =========================================
 
-            category values:
+      category values:
 
-            phone
-            computer
-            software
-            repair
-      Phone Device Unlock Services
-            Add new services here.
-          */
+      phone
+      computer
+      software
+      repair
+      security
+
+      Add new services here.
+      */
 
       const services = [
         {
           id: 1,
-
           name: "Phone Button Replacement",
-
           category: "repair",
-
           price: 50,
-
           priceLabel: "per piece",
-
           image:
             "https://img.drz.lazcdn.com/static/pk/p/e8bcee5c300cf438f1e293496f304465.jpg_960x960q80.jpg_.webp",
-
           description:
             "Replacement service for selected Android power, volume, or home buttons.",
         },
 
         {
           id: 2,
-
           name: "Microsoft Office 2024 Installation & Activation — Lifetime Use",
-
           category: "software",
-
           price: 250,
-
           priceLabel: "service",
-
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTYZ40Kg-j4zIXehIt61EHWuvm-ha-GIT7JBYMXHLeiw&s=10",
-
           description:
             "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
 
         {
           id: 3,
-
           name: "Microsoft Office 2021 Installation & Activation — Lifetime Use",
-
           category: "software",
-
           price: 200,
-
           priceLabel: "service",
-
           image:
             "https://keytive.com/wp-content/uploads/2023/01/Office-2021-Professional-Plus-PC.png",
-
           description:
             "Microsoft Office installation and activation. Non-genuine license; not officially licensed by Microsoft.",
         },
 
         {
           id: 4,
-
           name: "soon",
-
           category: "phone",
-
           price: 0,
-
           priceLabel: "soon",
-
           image:
             "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-
           description: "soon",
         },
 
         {
           id: 5,
-
           name: "Computer Troubleshooting",
-
           category: "computer",
-
           price: 150,
-
           priceLabel: "starting",
-
           image:
             "https://thumbs.dreamstime.com/b/computer-troubleshooting-services-flat-design-vector-illustration-computer-troubleshooting-services-flat-design-vector-142588324.jpg",
-
           description:
             "Basic computer troubleshooting, software problems, and system checks.",
         },
 
         {
           id: 6,
-
           name: "OPPO A3x unlock",
-
           category: "security",
-
           price: 300,
-
           priceLabel: "Per Unit",
-
           image: "https://fdn2.gsmarena.com/vv/bigpic/oppo-a3x.jpg",
-
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
@@ -351,6 +328,7 @@
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
+
         {
           id: 8,
           name: "Android LCD Screen Replacement",
@@ -362,6 +340,7 @@
           description:
             "LCD screen replacement for Android phones. Price varies depending on the phone model and LCD type. Message us for availability and exact pricing.",
         },
+
         {
           id: 9,
           name: "Xiaomi Redmi 9C unlock",
@@ -372,6 +351,7 @@
           description:
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
+
         {
           id: 10,
           name: "Realme C25Y (RMX3269) unlock",
@@ -383,6 +363,12 @@
             "⚠️ All data will be erased. The device will be reset and restored to a fresh state.",
         },
       ];
+
+      /*
+      =========================================
+      ELEMENTS
+      =========================================
+      */
 
       const serviceGrid = document.getElementById("serviceGrid");
 
@@ -397,33 +383,117 @@
       let selectedCategory = "all";
 
       /*
-            =========================================
-            MESSENGER
-            =========================================
-          */
+      =========================================
+      MESSENGER MESSAGE
+      =========================================
+      */
 
-      function openMessenger(service) {
-        const message =
-          `Hello F&C Tech!%0A%0A` +
-          `I'm interested in:%0A` +
-          `${encodeURIComponent(service.name)}%0A%0A` +
-          `Listed price: ₱${service.price.toLocaleString()}%0A%0A` +
-          `Please provide more details. Thank you!`;
+      function createMessengerMessage(service) {
+        const price =
+          service.price > 0
+            ? `₱${service.price.toLocaleString()}`
+            : service.priceLabel;
 
-        const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-        const url = mobile
-          ? `https://m.me/${FB_PAGE_ID}?text=${message}`
-          : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${message}`;
-
-        window.open(url, "_blank", "noopener,noreferrer");
+        return (
+          `Hello F&C Tech!\n\n` +
+          `I'm interested in:\n` +
+          `${service.name}\n\n` +
+          `Listed price: ${price}\n\n` +
+          `Please provide more details. Thank you!`
+        );
       }
 
       /*
-            =========================================
-            CARD
-            =========================================
+      =========================================
+      OPEN MESSENGER
+      =========================================
+
+      IMPORTANT:
+
+      Mobile:
+      Directly opens the Facebook Messenger
+      page using m.me.
+
+      Desktop:
+      Opens Messenger Web.
+
+      We intentionally do NOT use:
+
+      window.open(
+        "https://m.me/...?text=..."
+      )
+
+      because mobile Messenger/app handling of
+      query-string text can be inconsistent.
+
+      =========================================
+      */
+
+      function openMessenger(service) {
+        const message = createMessengerMessage(service);
+
+        const encodedMessage = encodeURIComponent(message);
+
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        let messengerURL;
+
+        if (isMobile) {
+          /*
+          Mobile Messenger.
+
+          The m.me URL is intentionally kept
+          simple because Facebook/Messenger
+          may ignore arbitrary text parameters
+          when opening the native app.
           */
+
+          messengerURL = `https://m.me/${FB_PAGE_ID}`;
+        } else {
+          /*
+          Desktop Messenger Web.
+
+          Keep the encoded text for browsers
+          where Messenger Web accepts it.
+          */
+
+          messengerURL = `https://www.messenger.com/t/${FB_PAGE_ID}?text=${encodedMessage}`;
+        }
+
+        /*
+        Use the current browser location instead
+        of window.open().
+
+        This avoids mobile browsers blocking
+        the Messenger window as a popup.
+        */
+
+        window.location.href = messengerURL;
+      }
+
+      /*
+      =========================================
+      MOBILE CONTACT BUTTON
+      =========================================
+
+      Make sure the floating mobile button
+      always goes directly to Messenger.
+      =========================================
+      */
+
+      const mobileContact = document.querySelector(".mobile-contact a");
+
+      if (mobileContact) {
+        mobileContact.addEventListener("click", function () {
+          window.location.href = `https://m.me/${FB_PAGE_ID}`;
+        });
+      }
+
+      /*
+      =========================================
+      CARD
+      =========================================
+      */
 
       function buildCard(service) {
         const card = document.createElement("article");
@@ -431,81 +501,76 @@
         card.className = "card";
 
         card.innerHTML = `
+          <div class="thumb">
 
-              <div class="thumb">
+            <img
+              src="${service.image}"
+              alt="${service.name}"
+              loading="lazy"
+              onerror="this.src='https://placehold.co/800x500/11141b/ffffff?text=F%26C+Tech'"
+            />
 
-                <img
-                  src="${service.image}"
-                  alt="${service.name}"
-                  loading="lazy"
-                  onerror="this.src='https://placehold.co/800x500/11141b/ffffff?text=F%26C+Tech'"
-                >
+            <div class="category-label">
+              ${getCategoryName(service.category)}
+            </div>
 
-                <div class="category-label">
-                  ${getCategoryName(service.category)}
-                </div>
+          </div>
 
-              </div>
+          <div class="card-body">
 
+            <div class="title">
+              ${service.name}
+            </div>
 
-              <div class="card-body">
+            <p class="desc">
+              ${service.description}
+            </p>
 
-                <div class="title">
-                  ${service.name}
-                </div>
+            <div class="bottom">
 
+              <div class="price">
 
-                <p class="desc">
-                  ${service.description}
-                </p>
+                <small>
+                  ${service.priceLabel}
+                </small>
 
-
-                <div class="bottom">
-
-                  <div class="price">
-
-                    <small>
-                      ${service.priceLabel}
-                    </small>
-
-                    ₱${service.price.toLocaleString()}
-
-                  </div>
-
-
-                  <button
-                    class="message-btn"
-                    type="button"
-                    data-id="${service.id}"
-                  >
-                    💬 Message
-                  </button>
-
-                </div>
+                ${
+                  service.price > 0
+                    ? `₱${service.price.toLocaleString()}`
+                    : service.priceLabel
+                }
 
               </div>
 
-            `;
+              <button
+                class="message-btn"
+                type="button"
+                data-id="${service.id}"
+                aria-label="Message F&C Tech about ${service.name}"
+              >
+                💬 Message
+              </button>
+
+            </div>
+
+          </div>
+        `;
 
         return card;
       }
 
       /*
-            =========================================
-            CATEGORY NAME
-            =========================================
-          */
+      =========================================
+      CATEGORY NAME
+      =========================================
+      */
 
       function getCategoryName(category) {
         const names = {
           phone: "📱 Phone",
-
           computer: "💻 Computer",
-
           software: "🧩 Software",
-
           repair: "🔧 Repair",
-
           security: "🔐 Phone Unlock",
         };
 
@@ -513,10 +578,10 @@
       }
 
       /*
-            =========================================
-            RENDER
-            =========================================
-          */
+      =========================================
+      RENDER
+      =========================================
+      */
 
       function renderServices() {
         const search = searchInput.value.trim().toLowerCase();
@@ -552,10 +617,10 @@
       }
 
       /*
-            =========================================
-            CATEGORY CLICK
-            =========================================
-          */
+      =========================================
+      CATEGORY CLICK
+      =========================================
+      */
 
       categories.addEventListener("click", (event) => {
         const button = event.target.closest(".category");
@@ -574,18 +639,18 @@
       });
 
       /*
-            =========================================
-            SEARCH
-            =========================================
-          */
+      =========================================
+      SEARCH
+      =========================================
+      */
 
       searchInput.addEventListener("input", renderServices);
 
       /*
-            =========================================
-            MESSAGE BUTTON
-            =========================================
-          */
+      =========================================
+      MESSAGE BUTTON
+      =========================================
+      */
 
       serviceGrid.addEventListener("click", (event) => {
         const button = event.target.closest(".message-btn");
@@ -602,10 +667,10 @@
       });
 
       /*
-            =========================================
-            INITIAL LOAD
-            =========================================
-          */
+      =========================================
+      INITIAL LOAD
+      =========================================
+      */
 
       renderServices();
     </script>
