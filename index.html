@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -18,67 +19,29 @@
       content="F&C Tech, phone repair, computer repair, phone unlock, software installation, technology services"
     />
 
-    <meta name="theme-color" content="#080a0f" />
-
+    <meta name="theme-color" content="#07090d" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-
     <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
 
     <link rel="icon" href="ico.ico" type="image/x-icon" />
-
     <link rel="stylesheet" href="style.css" />
 
     <title>F&C Tech | Services & Prices</title>
   </head>
 
   <body>
-    <div
-      id="fbBrowserNotice"
-      class="fb-browser-notice"
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby="browserNoticeTitle"
-      aria-describedby="browserNoticeText"
-    >
-      <div class="fb-browser-box">
-        <div class="fb-browser-icon" aria-hidden="true">🌐</div>
-
-        <div class="fb-browser-content">
-          <strong id="browserNoticeTitle">Open in your browser</strong>
-
-          <p id="browserNoticeText">
-            For the best experience, open F&C Tech in Chrome, Safari, or your
-            default browser.
-          </p>
-        </div>
-
-        <button
-          id="openExternalBrowser"
-          class="external-browser-btn"
-          type="button"
-        >
-          Open Browser
-        </button>
-
-        <button
-          id="closeFbNotice"
-          class="fb-close"
-          type="button"
-          aria-label="Close browser notice"
-        >
-          ×
-        </button>
-      </div>
-    </div>
-
     <header class="site-header">
       <div class="container nav">
         <a href="#" class="brand" aria-label="F&C Tech home">
-          <div class="brand-logo">F&C</div>
-          <span>F&C Tech</span>
+          <span class="brand-logo">F&C</span>
+
+          <span class="brand-text">
+            <strong>F&C Tech</strong>
+            <small>Technology Services</small>
+          </span>
         </a>
 
         <a
@@ -89,52 +52,120 @@
           aria-label="Visit F&C Tech Facebook Page"
         >
           <span class="facebook-icon">f</span>
-          <span>Facebook Page</span>
+          <span>Facebook</span>
+          <span class="button-arrow">↗</span>
         </a>
       </div>
     </header>
 
     <main>
       <section class="hero">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+
         <div class="container">
           <div class="hero-content">
-            <div class="badge">⚡ TECH SERVICES</div>
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              TECH SERVICES AVAILABLE
+            </div>
 
             <h1>
-              Tech Solutions.
-              <br />
-              <span>Fair & Simple.</span>
+              Technology made
+              <span>simple.</span>
             </h1>
 
-            <p>
-              Looking for reliable technology services? Explore our services,
-              check the listed prices, and message us directly through Facebook
-              Messenger.
+            <p class="hero-description">
+              Phone repair, computer troubleshooting, software services, device
+              unlocking, and everyday technology support.
             </p>
 
-            <div class="search-area">
-              <div class="search-box">
-                <span class="search-icon" aria-hidden="true">🔍</span>
+            <div class="hero-actions">
+              <a href="#services" class="hero-primary">
+                Explore Services
+                <span>↓</span>
+              </a>
 
-                <input
-                  id="searchInput"
-                  type="search"
-                  placeholder="Search services..."
-                  autocomplete="off"
-                  enterkeyhint="search"
-                  aria-label="Search services"
-                />
+              <a
+                href="https://m.me/61564956483389"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hero-secondary"
+              >
+                <span>💬</span>
+                Message Us
+              </a>
+            </div>
 
-                <button
-                  id="clearSearch"
-                  class="clear-search"
-                  type="button"
-                  aria-label="Clear search"
-                  hidden
-                >
-                  ×
-                </button>
+            <div class="trust-row">
+              <div class="trust-item">
+                <span class="trust-icon">🛠️</span>
+                <span>Repair & Support</span>
               </div>
+
+              <div class="trust-divider"></div>
+
+              <div class="trust-item">
+                <span class="trust-icon">💻</span>
+                <span>Tech Solutions</span>
+              </div>
+
+              <div class="trust-divider"></div>
+
+              <div class="trust-item">
+                <span class="trust-icon">💬</span>
+                <span>Direct Inquiry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">OUR SERVICES</span>
+
+              <h2>
+                What can we help
+                <span>you with?</span>
+              </h2>
+
+              <p>
+                Browse our available technology services and check the listed
+                prices before sending your inquiry.
+              </p>
+            </div>
+
+            <div class="service-count-box">
+              <strong id="serviceCount">0</strong>
+              <span>services</span>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-box">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search services..."
+                autocomplete="off"
+                enterkeyhint="search"
+                aria-label="Search services"
+              />
+
+              <button
+                id="clearSearch"
+                class="clear-search"
+                type="button"
+                aria-label="Clear search"
+                hidden
+              >
+                ×
+              </button>
             </div>
 
             <div
@@ -150,7 +181,7 @@
                 role="tab"
                 aria-selected="true"
               >
-                All Services
+                All
               </button>
 
               <button
@@ -200,101 +231,130 @@
                 role="tab"
                 aria-selected="false"
               >
-                🔐 Phone Unlock
+                🔐 Unlock
               </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section services-section">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Available Services</h2>
-              <p class="section-subtitle">
-                Choose a service and message us for details.
-              </p>
-            </div>
-
-            <div class="service-count" id="serviceCount" aria-live="polite">
-              0 services
             </div>
           </div>
 
           <div class="service-grid" id="serviceGrid" aria-live="polite"></div>
 
           <div class="empty" id="emptyState" hidden>
-            <div class="empty-icon">🔍</div>
+            <div class="empty-icon">⌕</div>
 
-            <strong>No services found</strong>
+            <h3>No services found</h3>
 
-            <p>Try another search or choose another category.</p>
+            <p>We couldn't find a service matching your search.</p>
 
             <button id="resetSearch" class="reset-btn" type="button">
               Show All Services
             </button>
           </div>
 
-          <div class="section-header info-heading">
-            <div>
-              <h2 class="section-title">How to Avail</h2>
-              <p class="section-subtitle">Simple steps to request a service.</p>
-            </div>
+          <div class="how-heading">
+            <span class="eyebrow">HOW IT WORKS</span>
+
+            <h2>
+              Getting started is
+              <span>easy.</span>
+            </h2>
           </div>
 
           <div class="info-grid">
-            <div class="info-card">
-              <div class="info-icon" aria-hidden="true">🔎</div>
+            <article class="info-card">
+              <div class="info-number">01</div>
 
-              <h3>1. Choose a Service</h3>
+              <div class="info-icon">🔎</div>
 
-              <p>Browse the categories and check the listed service price.</p>
-            </div>
+              <h3>Choose a Service</h3>
 
-            <div class="info-card">
-              <div class="info-icon" aria-hidden="true">💬</div>
+              <p>Browse the categories and select the service you need.</p>
+            </article>
 
-              <h3>2. Message Us</h3>
+            <article class="info-card">
+              <div class="info-number">02</div>
 
-              <p>Click the Messenger button and send your service inquiry.</p>
-            </div>
+              <div class="info-icon">💬</div>
 
-            <div class="info-card">
-              <div class="info-icon" aria-hidden="true">🛠️</div>
+              <h3>Send an Inquiry</h3>
 
-              <h3>3. Get Your Service</h3>
+              <p>
+                Click the Messenger button and tell us what service you need.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-number">03</div>
+
+              <div class="info-icon">🛠️</div>
+
+              <h3>Get Your Service</h3>
 
               <p>
                 We'll confirm the details, availability, and final price before
                 proceeding.
               </p>
+            </article>
+          </div>
+
+          <div class="contact-banner">
+            <div class="contact-banner-content">
+              <span class="contact-label">NEED HELP?</span>
+
+              <h2>Let's talk about your device.</h2>
+
+              <p>
+                Send us a message and tell us what technology problem you're
+                experiencing.
+              </p>
             </div>
+
+            <a
+              href="https://m.me/61564956483389"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-button"
+            >
+              <span>💬</span>
+              Message F&C Tech
+              <span>↗</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="container">
-        <strong>F&C Tech Quick Shop</strong>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">F&C</div>
 
-        <span class="footer-description">
-          Technology Services • Repair • Support
-        </span>
+          <div>
+            <strong>F&C Tech Quick Shop</strong>
+            <span>Technology Services • Repair • Support</span>
+          </div>
+        </div>
 
-        <span class="footer-facebook">
-          Facebook:
+        <div class="footer-links">
           <a
             href="https://www.facebook.com/profile.php?id=61564956483389"
             target="_blank"
             rel="noopener noreferrer"
           >
-            F&C Tech
+            Facebook
           </a>
-        </span>
 
-        <span class="copyright"> © 2026 F&C Tech. All rights reserved. </span>
+          <span>•</span>
+
+          <a
+            href="https://m.me/61564956483389"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Messenger
+          </a>
+        </div>
+
+        <div class="copyright">© 2026 F&C Tech. All rights reserved.</div>
       </div>
     </footer>
 
@@ -305,8 +365,14 @@
         rel="noopener noreferrer"
         aria-label="Message F&C Tech on Messenger"
       >
-        <span aria-hidden="true">💬</span>
-        <span>Message F&C Tech</span>
+        <span class="mobile-message-icon">💬</span>
+
+        <span>
+          <small>Have a question?</small>
+          Message F&C Tech
+        </span>
+
+        <span class="mobile-arrow">↗</span>
       </a>
     </div>
 
@@ -431,29 +497,7 @@
       const emptyState = document.getElementById("emptyState");
       const resetSearch = document.getElementById("resetSearch");
 
-      const fbBrowserNotice = document.getElementById("fbBrowserNotice");
-
-      const openExternalBrowser = document.getElementById(
-        "openExternalBrowser",
-      );
-
-      const closeFbNotice = document.getElementById("closeFbNotice");
-
       let selectedCategory = "all";
-
-      const userAgent =
-        navigator.userAgent || navigator.vendor || window.opera || "";
-
-      const isAndroid = /Android/i.test(userAgent);
-
-      const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
-
-      const isFacebookBrowser = /FBAN|FBAV|FB_IAB|FB4A|FB4B|FBIOS|FBSN/i.test(
-        userAgent,
-      );
-
-      const isMessengerBrowser =
-        /MessengerForiOS|MessengerForAndroid|FBAN\/Messenger/i.test(userAgent);
 
       function escapeHTML(value) {
         return String(value)
@@ -503,65 +547,88 @@
         const message = createMessengerMessage(service);
         const encodedMessage = encodeURIComponent(message);
 
-        const messengerURL =
-          isAndroid || isIOS
-            ? `https://m.me/${FB_PAGE_ID}`
-            : `https://www.messenger.com/t/${FB_PAGE_ID}?text=${encodedMessage}`;
+        const messengerURL = `https://www.messenger.com/t/${FB_PAGE_ID}?text=${encodedMessage}`;
 
-        window.location.assign(messengerURL);
+        window.open(messengerURL, "_blank", "noopener,noreferrer");
       }
 
-      function buildCard(service) {
+      function buildCard(service, index) {
         const card = document.createElement("article");
 
         card.className = "card";
+        card.style.setProperty(
+          "--card-delay",
+          `${Math.min(index * 45, 300)}ms`,
+        );
 
         const safeName = escapeHTML(service.name);
         const safeDescription = escapeHTML(service.description);
         const safeImage = escapeHTML(service.image);
         const categoryName = escapeHTML(getCategoryName(service.category));
 
-        card.innerHTML = `
-          <div class="thumb">
-            <img
-              src="${safeImage}"
-              alt="${safeName}"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
+        const isSoon = service.price === 0 && service.priceLabel === "Soon";
 
-            <div class="category-label">
-              ${categoryName}
-            </div>
+        card.innerHTML = `
+        <div class="thumb">
+
+          <img
+            src="${safeImage}"
+            alt="${safeName}"
+            loading="lazy"
+            decoding="async"
+            referrerpolicy="no-referrer"
+          >
+
+          <div class="image-overlay"></div>
+
+          <div class="category-label">
+            ${categoryName}
           </div>
 
-          <div class="card-body">
+          ${isSoon ? `<div class="soon-label">COMING SOON</div>` : ""}
+
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-top">
+
             <h3 class="title">
               ${safeName}
             </h3>
 
-            <p class="desc">
-              ${safeDescription}
-            </p>
+            <span class="service-arrow">↗</span>
 
-            <div class="bottom">
-              <div class="price">
-                <small>${escapeHTML(service.priceLabel)}</small>
-                ${formatPrice(service)}
-              </div>
-
-              <button
-                class="message-btn"
-                type="button"
-                data-id="${service.id}"
-                aria-label="Message F&C Tech about ${safeName}"
-              >
-                💬 Message
-              </button>
-            </div>
           </div>
-        `;
+
+          <p class="desc">
+            ${safeDescription}
+          </p>
+
+          <div class="bottom">
+
+            <div class="price">
+
+              <small>${escapeHTML(service.priceLabel)}</small>
+
+              <strong>${formatPrice(service)}</strong>
+
+            </div>
+
+            <button
+              class="message-btn"
+              type="button"
+              data-id="${service.id}"
+              aria-label="Message F&C Tech about ${safeName}"
+            >
+              <span>💬</span>
+              Message
+            </button>
+
+          </div>
+
+        </div>
+      `;
 
         const image = card.querySelector("img");
 
@@ -581,7 +648,6 @@
 
       function updateSearchButton() {
         const hasText = searchInput.value.trim().length > 0;
-
         clearSearch.hidden = !hasText;
       }
 
@@ -606,15 +672,15 @@
 
         const fragment = document.createDocumentFragment();
 
-        filtered.forEach((service) => {
-          fragment.appendChild(buildCard(service));
+        filtered.forEach((service, index) => {
+          fragment.appendChild(buildCard(service, index));
         });
 
         serviceGrid.appendChild(fragment);
 
         const count = filtered.length;
 
-        serviceCount.textContent = `${count} ${count === 1 ? "service" : "services"}`;
+        serviceCount.textContent = count;
 
         emptyState.hidden = count !== 0;
       }
@@ -626,6 +692,7 @@
           const active = button.dataset.category === category;
 
           button.classList.toggle("active", active);
+
           button.setAttribute("aria-selected", active ? "true" : "false");
         });
 
@@ -634,8 +701,11 @@
 
       function resetFilters() {
         searchInput.value = "";
+
         setCategory("all");
+
         updateSearchButton();
+
         searchInput.focus();
       }
 
@@ -674,80 +744,8 @@
         }
       });
 
-      function showBrowserNotice() {
-        if (isFacebookBrowser || isMessengerBrowser) {
-          fbBrowserNotice.classList.add("show");
-        }
-      }
-
-      function openCurrentPageExternally() {
-        const currentURL = window.location.href;
-
-        if (isAndroid) {
-          const cleanURL = currentURL.replace(/^https?:\/\//i, "");
-
-          const intentURL =
-            `intent://${cleanURL}` +
-            `#Intent;scheme=https;` +
-            `package=com.android.chrome;` +
-            `S.browser_fallback_url=${encodeURIComponent(currentURL)};end`;
-
-          window.location.href = intentURL;
-
-          return;
-        }
-
-        if (isIOS) {
-          const copyURL = function () {
-            if (navigator.clipboard && window.isSecureContext) {
-              return navigator.clipboard.writeText(currentURL);
-            }
-
-            return Promise.reject();
-          };
-
-          copyURL()
-            .then(function () {
-              alert(
-                "Link copied!\n\n" +
-                  "Open Safari and paste the link to continue.",
-              );
-            })
-            .catch(function () {
-              alert(
-                'Please open the Facebook menu and choose "Open in external browser".',
-              );
-            });
-
-          return;
-        }
-
-        const newWindow = window.open(
-          currentURL,
-          "_blank",
-          "noopener,noreferrer",
-        );
-
-        if (!newWindow) {
-          window.location.assign(currentURL);
-        }
-      }
-
-      openExternalBrowser.addEventListener("click", openCurrentPageExternally);
-
-      closeFbNotice.addEventListener("click", function () {
-        fbBrowserNotice.classList.remove("show");
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          fbBrowserNotice.classList.remove("show");
-        }
-      });
-
       updateSearchButton();
       renderServices();
-      showBrowserNotice();
     </script>
   </body>
 </html>
